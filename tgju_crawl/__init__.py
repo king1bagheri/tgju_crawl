@@ -24,7 +24,7 @@ def get_main_symbols():
     df = df.drop_duplicates(subset = 'symbol_Fa')
     df = df[df['count_profile'] == 1].drop('count_profile', axis=1).set_index('symbol_Fa')
     df['symbol_En'] = df['href'].apply(lambda x: x.split('/')[-1])
-    df.loc['طلای دست دوم']['symbol_En'] = 'gold_mini_size'
+    df.loc['طلای دست دوم','symbol_En'] = 'gold_mini_size'
     df['SYMBOL'] = df['symbol_En'].apply(lambda x: x.upper()) 
     df = df.drop('href', axis=1).drop_duplicates()
     return df
